@@ -69,9 +69,45 @@ def combine_birthday_data(person_to_day: List[Tuple[str, int]],
     #person_to_day, person_to_month, person_to_year are list of tuples
 
     # Write your code here
+    month_to_people_data = {}
+    num_month = 12 * [0]
+    num = 0
+    num_total = 0
+    loopvar =0
+    index = 1
+    index2 = 0
+
+    for month in person_to_month:
+        num = month[1]
+        num_month[num - 1] += 1
+        num_total += 1
+        print("occurance = {}, month = {}".format(num_month[num -1], num))
+
+    for month in num_month:
+        #print(month)
+        if(month == 1):
+            month_to_people_data[index] = ()
+            while loopvar < num_total:
+                if(person_to_month[loopvar][1] == index):
+                    month_to_people_data[index] = (person_to_month[loopvar][0], person_to_day[loopvar][1], person_to_year[loopvar][1], 2025 - person_to_year[loopvar][1])
+                    #print(month_to_people_data[index])
+                loopvar += 1
+            loopvar = 0
+        elif (month > 1):
+            month_to_people_data[index] = month * [1]
+            while loopvar < num_total:
+                if(person_to_month[loopvar][1] == index):
+                    month_to_people_data[index][index2] = (person_to_month[loopvar][0], person_to_day[loopvar][1], person_to_year[loopvar][1], 2025 - person_to_year[loopvar][1])
+                    #print(month_to_people_data[index])
+                    index2 +=1
+                loopvar += 1
+            loopvar = 0
+        index += 1
+        index2 = 0
 
     # return the variable storing output
     # Output should be a dictionary
+    return month_to_people_data
 
     pass
 
