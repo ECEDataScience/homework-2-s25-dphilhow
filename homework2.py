@@ -81,7 +81,7 @@ def combine_birthday_data(person_to_day: List[Tuple[str, int]],
         num = month[1]
         num_month[num - 1] += 1
         num_total += 1
-        print("occurance = {}, month = {}".format(num_month[num -1], num))
+        #print("occurance = {}, month = {}".format(num_month[num -1], num))
 
     for month in num_month:
         #print(month)
